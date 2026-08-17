@@ -1,0 +1,31 @@
+// Mike Gordon
+// CSD310
+// NoSQL data structure assignment
+// 8/17/2026
+
+{
+    "userID": 1,
+    "name": "name",
+
+    // User has one BIRTHDATE
+    "birthdate": "1/1/1991",
+
+    // User has many ROLES
+    "roles": [
+        "Role 1",
+        "Role 2",
+        "Role 3"
+    ],
+
+    // User can have many DEPENDENTS
+    "dependents": [
+        {
+            "dependentID": 11,
+            "name": "Dependent 1"
+        },
+        {
+            "dependentID": 12,
+            "name": "Dependent 2"
+        }
+    ]
+}
