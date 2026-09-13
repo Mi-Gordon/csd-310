@@ -1,3 +1,7 @@
+# Michael Gordon
+# CSD310 Database Development and Use
+# Assignment 6.2
+
 import mysql.connector
 from mysql.connector import errorcode
 
@@ -59,7 +63,7 @@ try:
 
     # Fourth query
     cursor.execute(
-        "SELECT film_name, film_director FROM film GROUP BY film_director")
+        "SELECT film_name, film_director FROM film ORDER BY film_director")
     director_results = cursor.fetchall()
 
     print("\n-- DISPLAYING Director RECORDS in Order --")
