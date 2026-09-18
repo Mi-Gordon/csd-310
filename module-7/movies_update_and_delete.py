@@ -16,19 +16,19 @@ config = {
 }
 
 
-def show_films(cursor,title):
+def show_films(cursor, title):
     # Method to execute an inner join on all tables, iterate over the dataset and output the results to the terminal window
 
     # INNER JOIN query
-    cursor.execute ("SELECT film_name AS Name, "
-                    "film_director AS Director, "
-                    "genre_name AS Genre, "
-                    "studio_name AS 'Studio Name' "
-                    "FROM film "
-                    "INNER JOIN genre "
-                    "ON film.genre_id = genre.genre_id "
-                    "INNER JOIN studio "
-                    "ON film.studio_id = studio.studio_id")
+    cursor.execute("SELECT film_name AS Name, "
+                   "film_director AS Director, "
+                   "genre_name AS Genre, "
+                   "studio_name AS 'Studio Name' "
+                   "FROM film "
+                   "INNER JOIN genre "
+                   "ON film.genre_id = genre.genre_id "
+                   "INNER JOIN studio "
+                   "ON film.studio_id = studio.studio_id")
 
     # Get the results from the cursor object
     films = cursor.fetchall()
@@ -41,7 +41,8 @@ def show_films(cursor,title):
               'Director: {}\n'
               'Genre Name: {}\n'
               'Studio Name: {}\n'.format(film[0], film[1], film[2], film[3]))
-        
+
+
 # MySQL: mysql_test.py. Connection test codetry:
 # try/catch block for handling potential MySQL dtabase errors
 try:
@@ -49,7 +50,7 @@ try:
     # Create cursor
     cursor = db.cursor()
 
-    show_films(cursor, "Display Results")
+    show_films(cursor, "DISPLAYING FILMS AFTER DELETE")
 
     # # INNER JOIN film and genre
     # # FROM brings in the film table and JOIN brings the genre table
