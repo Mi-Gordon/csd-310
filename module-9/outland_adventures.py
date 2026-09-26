@@ -18,26 +18,31 @@ config = {
 
 
 def show_table(cursor, table_name):
-    cursor.execute (f'SELECT * FROM {table_name}')
+    cursor.execute(f'SELECT * FROM {table_name}')
 
     results = cursor.fetchall()
 
-    print('\n' + '*' *50)
-    print(table_name)
-    print('*' *50)
+    # Get column names
+    columns = cursor.column_names
+
+    print('\n' + '*' * 50)
+    print(table_name.upper())
+    print('*' * 50)
 
     # Show each row
     for row in results:
-        print(row)
+        for labels in range(len(columns)):
+            # Column name formatting
+            label = columns[labels].replace('_', ' ').title()
+            print(f'{label}: {row[labels]}')
 
-
+        print('-' * 50)
 
 
 try:
     db = mysql.connector.connect(**config)  # Connect to the movies database
     # Create cursor
     cursor = db.cursor()
-
 
     # Show data from each table
     show_table(cursor, 'Roles')
@@ -46,7 +51,6 @@ try:
     show_table(cursor, 'Locations')
     show_table(cursor, 'Categories')
     show_table(cursor, 'Employees')
-    show_table(cursor, 'Trips')
     show_table(cursor, 'Trips')
     show_table(cursor, 'Bookings')
     show_table(cursor, 'Equipment')
